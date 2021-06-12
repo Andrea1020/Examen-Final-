@@ -1,0 +1,68 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package examf;
+
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Ana de la Cruz
+ */
+public class ExamF {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada = new Scanner(System.in);
+        int arreglo[],nElementos,aux; 
+        
+        nElementos = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de elementos"));
+        
+        arreglo = new int[nElementos];
+        
+  
+        
+        for(int i=0 ; i<nElementos;i++){
+            System.out.println((i+1)+".Digite un número: ");
+            arreglo[i] = entrada.nextInt();
+        }
+
+        //Aquí ordenamos de forma ascendente
+        for (int i = 0; i < (nElementos-1) ; i++) {
+            for (int j = 0; j < (nElementos-1); j++) {
+                if(arreglo[j]> arreglo[j+1]){
+                    aux = arreglo[j];
+                    arreglo[j] = arreglo[j+1];
+                    arreglo[j+ 1] = aux;                
+                }
+            }
+        }
+
+        //Aquí mostramos de menor a mayor
+        System.out.println("arreglo ordenado menor a mayor: ");
+        for (int i = 0; i < nElementos ; i++) {
+            System.out.print(arreglo[i]+"-");
+        }
+
+
+	//Aquí mostramos de mayor a menor
+        System.out.println("\nArreglo ordenado de mayor a menor");
+        for (int i = nElementos-1; i  >= 0; i++) {
+            System.out.print(arreglo[i]+" - ");
+        }
+
+	//Aquí mostramos el mayor
+	System.out.println("\nEl número mayor es: ");
+	System.out.println(arreglo[nElementos-1]);
+        //Aquí mostramos el menor
+	System.out.println("\nEl número menor es: ");
+	System.out.println(arreglo[0]);
+    }
+    
+}
